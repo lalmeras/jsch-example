@@ -7,6 +7,7 @@ import com.jcraft.jsch.Session;
 public class Main {
 
 	public static final void main(String[] args) throws JSchException {
+		JSch.setLogger(new MyLogger());
 		JSch jsch = new JSch();
 		jsch.addIdentity(System.getProperty("user.home") + "/.ssh/id_rsa", "XXXXXXXXXXX");
 		Session session = jsch.getSession("git", "github.com", 22);
